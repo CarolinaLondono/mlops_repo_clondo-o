@@ -2,7 +2,8 @@
 Entrena y evalúa varios modelos y selecciona el mejor.
 """
 import time
-
+from pathlib import Path
+import joblib
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -143,5 +144,13 @@ if __name__ == "__main__":
     print("Mejor modelo CON puntaje (solo comparación):", mejores[True][0])
     print("MODELO SELECCIONADO (sin puntaje):", mejores[False][0])
 
-    modelo_final = mejores[False][1]
-    graficar(resultados)
+    
+modelo_final = mejores[False][1]
+
+# Guardar el modelo seleccionado junto con su preprocesamiento
+ruta_modelo = Path(__file__).resolve().parent / "modelo_final.joblib"
+joblib.dump(modelo_final, ruta_modelo)
+
+print(f"\nModelo guardado correctamente en: {ruta_modelo}")
+
+graficar(resultados)
