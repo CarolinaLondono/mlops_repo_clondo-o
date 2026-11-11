@@ -3,9 +3,9 @@ FROM python:3.13-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY requirements-docker.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements-docker.txt
 
 COPY mlops_pipeline/ ./mlops_pipeline/
 
