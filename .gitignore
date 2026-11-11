@@ -6,3 +6,4 @@ __pycache__/
 .vscode/
 # Archivos temporales de prueba
 prueba_creditos.csv
+prueba_creditos.json
